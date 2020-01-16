@@ -36,6 +36,8 @@ public class ScrabbleRackManager {
         for(String r: rack){
             rackCounts[alphabet.indexOf(r)]+=1;
         }
+        rack.set(0, " ");
+        rack.set(1, " ");
         //reading in text file
         Scanner in = null;
         try{
@@ -103,7 +105,10 @@ public class ScrabbleRackManager {
     public static void main(String[] args){
         ScrabbleRackManager app = new ScrabbleRackManager();
         app.printRack();
+        long tick = System.nanoTime();
         app.printMatches();
         app.getPlaylist();
+        long tock = System.nanoTime();
+        System.out.println(tock-tick);
     }
 }
