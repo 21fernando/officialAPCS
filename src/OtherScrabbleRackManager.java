@@ -2,18 +2,17 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+
 /**
- * This program creates a doubly randomized scrabble rack and then find all of the words that can be played from it.
- * @author 21fernando
- * @version 1/15/2020
+ * add blank tiles
  */
-public class ScrabbleRackManager {
+public class OtherScrabbleRackManager {
     public ArrayList<String> scrabbleWords;
     public ArrayList<String> rack;
     public String alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     public int[] rackCounts;
     /** default class constructor */
-    public ScrabbleRackManager() {
+    public OtherScrabbleRackManager() {
         //initializing arrays and lists
         rack = new ArrayList<>();
         scrabbleWords = new ArrayList<>();
@@ -54,6 +53,24 @@ public class ScrabbleRackManager {
     /** displays the contents of the player's tile rack */
     public void printRack(){
         System.out.println("Letters in the rack: "  + rack);
+    }
+    /** Returns all the permutations of  given length using the words */
+    private ArrayList<String> getPermutations(int length, ArrayList<String> letters){
+        ArrayList<String> permutations = new ArrayList<>();
+        ArrayList<String> temp = new ArrayList<>();
+        if (length ==1 ){
+            return letters;
+        }
+        for(int i =0; i<letters.size(); i++){
+            temp = (ArrayList<String>)(letters.clone()); // http://www.java2novice.com/java-collections-and-util/arraylist/copy-clone/
+            temp.remove(i);
+            String letter = letters.get(i);
+            for(String p: getPermutations(length-1, temp)){
+                if(!permutations.contains(letter+p))permutations.add(letter+p);
+            }
+
+        }
+        return permutations;
     }
     /** builds and returns an ArrayList of String objects that are values pulled from
      * the dictionary/database based on the available letters in the user's tile rack
@@ -97,13 +114,25 @@ public class ScrabbleRackManager {
         System.out.println("* denotes bingo");
         System.out.println(words.size());
     }
-    /**main method for this program
-     * @param args comman line arguments if necessary
-     */
+    public ArrayList<String> getPermutationsPlaylist(){
+        ArrayList<String> playable = new ArrayList<>();
+        for (int i = 2; i < 8; i++) {
+            for(String possible: getPermutations(i,rack)){
+                if(Collections.binarySearch(scrabbleWords,possible)>-1) playable.add(possible);
+            }
+        }
+        return playable;
+    }
+    /** main method for the class; use only 3 command lines in main */
     public static void main(String[] args){
-        ScrabbleRackManager app = new ScrabbleRackManager();
+        long tick = System.nanoTime();
+        OtherScrabbleRackManager app = new OtherScrabbleRackManager();
         app.printRack();
         app.printMatches();
-        app.getPlaylist();
+        long tock = System.nanoTime();
+        System.out.println(tock - tick);
+        //System.out.println(app.getPermutations(3, app.rack));
     }
+
+
 }
