@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,14 @@ public class OtherScrabbleRackManager {
     public ArrayList<String> rack;
     public String alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     public int[] rackCounts;
+    public ArrayList<HashMap<String,Integer>> l0 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l1 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l2 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l3 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l4 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l5 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l6 = new ArrayList<>();
+    public ArrayList<HashMap<String,Integer>> l7 = new ArrayList<>();
     /** default class constructor */
     public OtherScrabbleRackManager() {
         //initializing arrays and lists
@@ -32,6 +41,13 @@ public class OtherScrabbleRackManager {
         for (int i = 0; i < 7; i++) {
             rack.add(allTiles.remove((int)(Math.random()*allTiles.size())));
         }
+        rack.set(0,"A");
+        rack.set(1,"L");
+        rack.set(2,"C");
+        rack.set(3,"D");
+        rack.set(4,"K");
+        rack.set(5,"N");
+        rack.set(6," ");
         for(String r: rack){
             rackCounts[alphabet.indexOf(r)]+=1;
         }
@@ -57,7 +73,7 @@ public class OtherScrabbleRackManager {
     /** Returns all the permutations of  given length using the words */
     private ArrayList<String> getPermutations(int length, ArrayList<String> letters){
         ArrayList<String> permutations = new ArrayList<>();
-        ArrayList<String> temp = new ArrayList<>();
+        ArrayList<String> temp;
         if (length ==1 ){
             return letters;
         }
@@ -66,7 +82,9 @@ public class OtherScrabbleRackManager {
             temp.remove(i);
             String letter = letters.get(i);
             for(String p: getPermutations(length-1, temp)){
-                if(!permutations.contains(letter+p))permutations.add(letter+p);
+                if(!permutations.contains(letter+p)){
+                    permutations.add(letter+p);
+                }
             }
 
         }
@@ -125,12 +143,16 @@ public class OtherScrabbleRackManager {
     }
     /** main method for the class; use only 3 command lines in main */
     public static void main(String[] args){
-        long tick = System.nanoTime();
         OtherScrabbleRackManager app = new OtherScrabbleRackManager();
+        /*long tick = System.nanoTime();
         app.printRack();
         app.printMatches();
         long tock = System.nanoTime();
         System.out.println(tock - tick);
+        app.getPermutations(7,app.rack);*/
+        for (int i = 0; i < 7; i++) {
+            System.out.println(app.getPermutations(i,app.rack));
+        }
         //System.out.println(app.getPermutations(3, app.rack));
     }
 
