@@ -6,11 +6,13 @@ public abstract class Animal {
     private int numLegs;
     private boolean isFemale;
     private String color;
+
     public Animal(){
         numLegs = 0;
         color = null;
         isFemale = false;
     }
+
     public Animal(int numLegs, boolean isFemale, String color){
         this.numLegs = numLegs;
         this.isFemale = isFemale;
@@ -35,5 +37,6 @@ public abstract class Animal {
 
     public abstract String speak();
     public abstract String agriculturalProduct();
+
 
 }

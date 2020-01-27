@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class ArrayStuff {
+public class ArrayStuff{
 
     public static void swap(int[] arr){
         if ( arr.length>1){
@@ -138,7 +138,6 @@ public class ArrayStuff {
         for (int[] i : m){
             System.out.println(Arrays.toString(i));
         }
-
     }
 
 }
