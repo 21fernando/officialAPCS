@@ -16,12 +16,19 @@ public abstract class Poem {
         }
     }
 
+    public void printName(){
+        System.out.println("poem");
+    }
+
     public static void main(String[] args) {
         Poem haiku = new Haiku();
         Poem limerick = new Limerick();
         haiku.printRythm();
         limerick.printRythm();
-        System.out.println(haiku.getClass());
+        haiku.printName();
+        Dog fido = new UnderDog();
+        fido.act();
+        fido.eat();
     }
 
 }

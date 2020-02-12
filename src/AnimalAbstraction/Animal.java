@@ -3,7 +3,7 @@ package AnimalAbstraction;
 public abstract class Animal {
     //abstract classes can contain private data
     //interfaces can only contain a list of methods -- all public
-    private int numLegs;
+    private int numLegs ;
     private boolean isFemale;
     private String color;
 

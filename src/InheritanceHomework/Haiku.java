@@ -11,6 +11,9 @@ public class Haiku extends Poem{
         return numSyl[k-1];
     }
 
+    public void printName(){
+        System.out.println("haiku");
+    }
 
     public void sayHi(){
         System.out.println("hello world");

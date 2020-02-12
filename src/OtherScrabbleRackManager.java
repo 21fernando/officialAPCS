@@ -12,14 +12,6 @@ public class OtherScrabbleRackManager {
     public ArrayList<String> rack;
     public String alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
     public int[] rackCounts;
-    public ArrayList<HashMap<String,Integer>> l0 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l1 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l2 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l3 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l4 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l5 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l6 = new ArrayList<>();
-    public ArrayList<HashMap<String,Integer>> l7 = new ArrayList<>();
     /** default class constructor */
     public OtherScrabbleRackManager() {
         //initializing arrays and lists

@@ -11,6 +11,7 @@ public class DairyCow extends Cow {
 
     public String speak(){
         return "I am a dairy cow "  +  super.speak() + " milk";
+
     }
 
 
@@ -18,5 +19,10 @@ public class DairyCow extends Cow {
         if(!( other instanceof DairyCow)) return false;
         DairyCow temp = (DairyCow) other;
         return (this.getNumLegs() == temp.getNumLegs() && this.getIsSpotted() == temp.getIsSpotted() && this.getColor().equals(temp.getColor()));
+    }
+
+    public static void main(String[] args) {
+        DairyCow dc = new DairyCow(5, "blue", false);
+        System.out.println(dc);
     }
 }

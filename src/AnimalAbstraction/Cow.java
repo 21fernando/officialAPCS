@@ -3,7 +3,7 @@ package AnimalAbstraction;
 public class Cow extends Animal {
 
     private boolean spotted;
-
+    int id = 9;
     public Cow(int numLegs, boolean isFemale, String color, boolean spotted){
         super(numLegs,isFemale,color);
         this.spotted = spotted;
