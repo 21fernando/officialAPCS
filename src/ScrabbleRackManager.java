@@ -88,12 +88,12 @@ public class ScrabbleRackManager {
         if(words.size() == 0){
             System.out.println("Sorry, NO words can be played from those tiles.");
         }else{
-            int i =1;
+            int i =0;
             String word;
             while(i<words.size()){
                 word = words.get(i);
                 System.out.printf("%-12s", (word.length()==7 )? word+"*": word); // Credit to griffin for this line
-                if(i%10==0){ System.out.println(); }
+                if(i%9==0){ System.out.println(); }
                 i++;
             }
         }
