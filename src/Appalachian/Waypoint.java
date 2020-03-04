@@ -1,6 +1,6 @@
 package Appalachian;
 
-public class Waypoint implements Comparable<Waypoint> {
+public class Waypoint{
     private String featureType, name, state;
     private double latitude, longitude, sDist, kDist;
     private int elevation;
@@ -25,9 +25,6 @@ public class Waypoint implements Comparable<Waypoint> {
     public double getsDist() { return sDist; }
     public int getElevation() { return elevation; }
 
-    public int compareTo(Waypoint other){
-        return 0;
-    }
     public String toString(){
         return this.featureType + "\t" + this.name + "\t" + this.state + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.sDist + "\t" + this.kDist + "\t" + elevation;
     }

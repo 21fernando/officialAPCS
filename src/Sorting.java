@@ -24,28 +24,16 @@ public class Sorting {
 
     }
 
-    public static void mergeSort(int[] nums, int low, int high){
-        if(high-low <=2){
-            if(nums.length == 2 && nums[0]>nums[1]){
-                int temp = nums[1];
-                nums[1] = nums[0];
-                nums[0] = temp;
-            }
-        }
+    public static void mergeSort(int[] nums){
+        if(nums.length <2){ return;}
         else{
             //SPLITTING HERE
-            int mid = high/2;
-            int[] p1 = new int[mid];
-            int[] p2 = new int[high-mid];
-            for (int i = 0; i <mid ; i++) {
-                p1[i] = nums[i];
-            }
-            for (int i = mid; i <high; i++) {
-                p2[i-mid] = nums[i];
-            }
+            int mid = nums.length/2;
+            int[] p1 = Arrays.copyOfRange(nums, 0, mid);
+            int[] p2 = Arrays.copyOfRange(nums, mid, nums.length);
             //RECURSION HERE
-            mergeSort(p1, 0, p1.length);
-            mergeSort(p2, 0, p2.length);
+            mergeSort(p1);
+            mergeSort(p2);
             //MERGING HERE
             int index1 = 0;
             int index2 = 0;
@@ -82,7 +70,7 @@ public class Sorting {
         }
         //int[]nums = {1,2,3,4,6,5};
         System.out.println(Arrays.toString(large));
-        mergeSort(large,0,large.length);
+        mergeSort(large);
         System.out.println(Arrays.toString(large));
     }
 
