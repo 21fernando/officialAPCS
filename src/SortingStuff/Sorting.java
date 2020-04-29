@@ -8,6 +8,7 @@ public class Sorting {
 
     public static void selectionSort(int[] nums){
         for (int out = 0; out < nums.length; out++) {
+            System.out.println(Arrays.toString(nums));
             int min = nums[out];
             int index  = out;
             for(int in = out+1; in<nums.length; in ++){
@@ -69,9 +70,10 @@ public class Sorting {
         for (int i = 0; i < 100; i++) {
             large[i] = (int) (Math.random() * 10000);
         }
-        System.out.println(Arrays.toString(large));
+        selectionSort(nums);
+        /*System.out.println(Arrays.toString(large));
         mergeSort(large);
-        System.out.println(Arrays.toString(large));
+        System.out.println(Arrays.toString(large));*/
     }
 
 }
