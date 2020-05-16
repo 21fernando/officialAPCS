@@ -21,4 +21,6 @@ public class AdditionPattern {
         num-= (num>startNum)? increment:0;
     }
 
+
+
 }
